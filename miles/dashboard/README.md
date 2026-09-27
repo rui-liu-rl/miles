@@ -30,7 +30,7 @@ raw-conversation sidecar (`trajectory/`, for the conversation view).
 ## View
 
 ```bash
-pip install fastapi uvicorn polars   # already present in the training image
+pip install fastapi uvicorn polars torch numpy transformers==5.12.1   # already present in the training image
 python -m miles.dashboard.serve --dump-details /path/to/dump [--follow] [--port 7788]
 ```
 
@@ -64,6 +64,7 @@ Views:
 ## Develop
 
 ```bash
+pip install ray    # on top of the View set; --demo also needs a repo checkout
 python -m miles.dashboard.serve --demo    # generated demo data, no cluster needed
 python -m pytest tests/fast/dashboard/ -q
 MILES_DASHBOARD_REALDATA_DIR=/path/to/real/dump python -m pytest tests/fast/dashboard/ -q
